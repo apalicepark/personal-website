@@ -1,22 +1,27 @@
-# Personal site
+# personal-website
 
-Plain HTML + CSS + a tiny bit of JS. No framework, no build step, no database.
+My personal site, live at https://apalicepark.github.io/personal-website/
 
-- `index.html`: all your content. Search for `[brackets]` to find placeholders.
-- `style.css`: colors, fonts, and spacing live in the `:root` block at the top.
-- `script.js`: scroll fade-in, project filters, nav highlight.
+I'm Alice Park, a data science student at UC San Diego working on product and software. This site holds my experience and projects.
 
-Preview locally: double-click `index.html`, or run `python3 -m http.server` in this folder and open http://localhost:8000.
+## How it's built
 
-## Deploy: GitHub Pages (free)
+It's plain HTML, CSS, and a little JavaScript, with no framework or build step. GitHub Pages serves it straight from the `main` branch.
 
-1. Create a repo named `<your-username>.github.io` (this gives you a clean URL with no subpath).
-2. Put these files in the repo root and push.
-3. Repo Settings → Pages → Source: "Deploy from a branch" → `main` / root.
-4. Visit `https://<your-username>.github.io` in a minute or two.
+The design takes after Swiss-style print resumes: one centered column, black Inter on white, and small all-caps section labels with the content beside them.
 
-Alternatives: Netlify Drop (drag the folder onto app.netlify.com/drop, live in seconds) or Cloudflare Pages / Vercel (connect the repo, no build command).
+## Files
 
-## Custom domain
+- `index.html` has all the content.
+- `style.css` has the layout and styling. Colors, fonts, and page width are set at the top.
+- `script.js` fades sections in as you scroll and runs the project filters.
 
-Buy one (Namecheap, Cloudflare, Porkbun, roughly $10-15/yr), then add it under Pages settings (GitHub) or Domains (Netlify/Vercel) and follow the DNS instructions they show.
+## Running it locally
+
+```bash
+git clone https://github.com/apalicepark/personal-website.git
+cd personal-website
+python3 -m http.server
+```
+
+Then open http://localhost:8000.

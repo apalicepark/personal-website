@@ -122,7 +122,8 @@ body { font-size: 14px; line-height: 1.5; }
 
 .bar { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 44px; }
 .bar .name { font-weight: 600; text-transform: uppercase; text-decoration: none; }
-.bar .links { display: flex; gap: 18px; }
+.bar .links { display: flex; flex-wrap: wrap; }
+.bar .links a + a { margin-left: 18px; }
 .bar .links a { color: var(--muted); }
 .bar .links a:hover, .bar .links a.on { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 

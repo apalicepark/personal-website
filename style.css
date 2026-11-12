@@ -1,0 +1,92 @@
+/* ---------- tokens: edit these to re-theme the whole site ---------- */
+:root {
+  --paper: #f6f3ee;       /* warm off-white, like unbleached paper */
+  --ink: #2a2826;         /* soft black */
+  --muted: #7d7870;       /* secondary text */
+  --line: #ddd8cf;        /* hairlines */
+  --accent: #8a1f2b;      /* muji-ish deep red, used sparingly */
+  --measure: 640px;       /* reading width */
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1f1e1c;
+    --ink: #ece8e1;
+    --muted: #9a958c;
+    --line: #34322f;
+    --accent: #d27a83;
+  }
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.7 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color .2s, color .2s; }
+a:hover { color: var(--accent); border-color: var(--accent); }
+::selection { background: var(--accent); color: var(--paper); }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); z-index: 10; }
+.nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+.nav .brand { font-family: var(--serif); font-size: 18px; border: 0; }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.nav ul a { border: 0; color: var(--muted); }
+.nav ul a:hover, .nav ul a.active { color: var(--ink); }
+
+/* ---------- hero ---------- */
+.hero { padding: 96px 0 56px; }
+.hero h1 { font: 400 clamp(38px, 7vw, 56px)/1.1 var(--serif); margin: 0 0 20px; letter-spacing: -0.01em; }
+.hero p { font-size: 18px; color: var(--ink); margin: 0 0 28px; max-width: 34em; }
+.hero .meta { color: var(--muted); font-size: 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; }
+
+/* ---------- sections ---------- */
+section { padding: 56px 0; border-top: 1px solid var(--line); }
+h2 { font: 500 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 32px; }
+
+/* ---------- entries (experience / projects) ---------- */
+.entry { display: grid; grid-template-columns: 120px 1fr; gap: 8px 24px; padding: 18px 0; }
+.entry + .entry { border-top: 1px dashed var(--line); }
+.entry .when { color: var(--muted); font-size: 14px; padding-top: 2px; }
+.entry h3 { font: 500 17px/1.4 var(--sans); margin: 0; }
+.entry h3 span { color: var(--muted); font-weight: 400; }
+.entry p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 1px 10px; }
+
+/* ---------- project filter ---------- */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 20px; }
+.filters button { font: inherit; font-size: 13px; background: none; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 2px 14px; cursor: pointer; transition: all .2s; }
+.filters button:hover { color: var(--ink); border-color: var(--muted); }
+.filters button.on { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+.entry.hide { display: none; }
+
+/* ---------- misc ---------- */
+.skills { display: grid; grid-template-columns: 120px 1fr; gap: 10px 24px; font-size: 15px; }
+.skills dt { color: var(--muted); font-size: 14px; }
+.skills dd { margin: 0; }
+footer { padding: 48px 0 72px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+/* gentle fade-in on scroll */
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+@media (max-width: 560px) {
+  .entry, .skills { grid-template-columns: 1fr; }
+  .nav ul { gap: 14px; }
+  .nav .brand { display: none; }   /* name is already in the hero; keeps the bar uncluttered */
+  .nav .wrap { justify-content: flex-end; }
+  .hero { padding-top: 64px; }
+}

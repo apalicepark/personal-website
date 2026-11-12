@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alice [Last Name]</title>
+  <meta name="description" content="Data Science student at UC San Diego interested in product and software.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Alice [Last Name]</a>
+    <nav>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <h1>Alice [Last Name]</h1>
+    <p>
+      I'm a Data Science student at UC San Diego who likes turning messy problems
+      into products people actually use. Right now I'm working on software, product,
+      and design for teams and nonprofits.
+    </p>
+    <p class="meta">B.S. Data Science, minors in Design and Entrepreneurship &amp; Technology · Class of 2028</p>
+    <div class="links">
+      <a href="mailto:you@example.com">Email</a>
+      <a href="https://www.linkedin.com/in/your-handle">LinkedIn</a>
+      <a href="https://github.com/your-handle">GitHub</a>
+      <a href="resume.pdf">Resume</a>
+    </div>
+  </div>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="reveal">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="when">2026 – now</div>
+      <div>
+        <h3>Product Manager <span>· Develop for Good</span></h3>
+        <p>Leading the website project for the Bebop Workshop Institute, a jazz education nonprofit: PRD, roadmap, and user research.</p>
+        <div class="tags"><span class="tag">Product</span><span class="tag">User research</span></div>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2026 – now</div>
+      <div>
+        <h3>Product Manager <span>· Triton Software Engineering</span></h3>
+        <p>[One sentence on what you own and what changed because of you.]</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">Fall 2026</div>
+      <div>
+        <h3>Team Member <span>· i4NS, Team WILCO</span></h3>
+        <p>Building a voice-commanded drone MVP; writing the weekly team progress updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="reveal">
+    <h2>Projects</h2>
+
+    <div class="filters">
+      <button class="on" data-tag="all">All</button>
+      <button data-tag="product">Product</button>
+      <button data-tag="data">Data</button>
+      <button data-tag="software">Software</button>
+    </div>
+
+    <!-- To add a project: copy one .entry block. data-tags decides which filters it shows under. -->
+    <div class="entry" data-tags="product software">
+      <div class="when">2026</div>
+      <div>
+        <h3><a href="#">Bebop Workshop Institute website</a></h3>
+        <p>[Two lines: the problem, what you shipped, what you learned.]</p>
+        <div class="tags"><span class="tag">PRD</span><span class="tag">Roadmap</span></div>
+      </div>
+    </div>
+
+    <div class="entry" data-tags="data">
+      <div class="when">2026</div>
+      <div>
+        <h3><a href="#">SmartRoutes</a></h3>
+        <p>Geospatial analysis of San Diego MTS bus routes.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Geospatial</span></div>
+      </div>
+    </div>
+
+    <div class="entry" data-tags="data">
+      <div class="when">Fall 2026</div>
+      <div>
+        <h3><a href="#">European hotel reviews</a></h3>
+        <p>Does a reviewer's experience level shape how far their rating deviates from a hotel's average? Booking.com data, COGS 108.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Statistics</span></div>
+      </div>
+    </div>
+
+    <div class="entry" data-tags="product data">
+      <div class="when">Fall 2026</div>
+      <div>
+        <h3><a href="#">Music app survey</a></h3>
+        <p>Market research with conjoint analysis on what people want from a music app. MGT 108R.</p>
+        <div class="tags"><span class="tag">Survey design</span><span class="tag">Conjoint</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="reveal">
+    <h2>About</h2>
+    <p>
+      [A short paragraph in your own voice. Where you're from, what you care about, what you like making.
+      Writing it yourself is what will make this page feel like you.]
+    </p>
+    <dl class="skills">
+      <dt>Build</dt><dd>Python, SQL, JavaScript, React</dd>
+      <dt>Product</dt><dd>PRDs, roadmaps, user research</dd>
+      <dt>Design</dt><dd>Figma, prototyping</dd>
+    </dl>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Alice [Last Name]</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

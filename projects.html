@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
+  <title>Projects · alice park</title>
+  <meta name="description" content="data science @ ucsd | product & software">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="sheet">
+  <nav class="bar">
+    <a class="name" href="index.html">Alice (Seoyoung) Park</a>
+    <div class="links"><a href="index.html">about</a><a href="experience.html">experience</a><a href="projects.html" class="on">projects</a></div>
+  </nav>
+
+  <div class="grid">
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="filters">
+          <button class="on" data-tag="all">All</button>
+          <button data-tag="product">Product</button>
+          <button data-tag="data">Data</button>
+          <button data-tag="software">Software</button>
+        </div>
+
+        <!-- To add a project: copy one .entry block. data-tags decides which filters it shows under. -->
+        <div class="entry" data-tags="product software">
+          <div class="title"><a href="#">Bebop Workshop Institute website</a></div>
+          <div class="when">2026</div>
+          <p>[Two lines: the problem, what you shipped, what you learned.]</p>
+        </div>
+
+        <div class="entry" data-tags="data">
+          <div class="title"><a href="#">SmartRoutes</a></div>
+          <div class="when">2026</div>
+          <p>Geospatial analysis of San Diego MTS bus routes.</p>
+        </div>
+      </section>
+  </div>
+
+  <footer>© 2026 Alice Park</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

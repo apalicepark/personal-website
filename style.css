@@ -46,8 +46,8 @@ h2 { font: 600 15px/1.45 var(--sans); text-transform: uppercase; margin: 0; }
 section > .entry:first-of-type, section > .lines, section > .pairs { margin-top: 0; }
 
 /* reading order: change these numbers to rearrange sections */
-#about { order: 1; } #experience { order: 2; } #projects { order: 3; }
-#education { order: 4; } #skills { order: 5; } #links { order: 6; }
+#about { order: 1; } #education { order: 2; } #experience { order: 3; }
+#projects { order: 4; } #skills { order: 5; } #links { order: 6; }
 
 /* simple stacked lines, like "Figma (Advanced)" */
 .lines { list-style: none; margin: 0; padding: 0; }
@@ -72,6 +72,41 @@ section > .entry:first-of-type, section > .lines, section > .pairs { margin-top:
 .filters button:hover { color: var(--ink); }
 .filters button.on { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .entry.hide { display: none; }
+
+
+/* ---------- off the clock: photo trail, magazine-spread style ---------- */
+/* the section breaks out of the 760px column to a wider "spread" */
+.trail { display: block; width: min(1100px, calc(100vw - 48px)); margin: 120px 0 0 50%; translate: -50% 0; }
+.trail h2 { margin-bottom: 8px; }
+.trail .intro { color: var(--muted); max-width: 30em; margin: 0 0 24px; }
+.map { position: relative; aspect-ratio: 1100 / 560; }
+.map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.map path { fill: none; stroke: var(--ink); stroke-width: 1.2; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 2.4s ease .2s; }
+.trail.in .map path { stroke-dashoffset: 0; }
+
+/* each stop sits at an (x, y) point on the 1100 x 560 drawing */
+.stop { position: absolute; width: 8.5%; left: calc(var(--x) * 100% / 1100); top: calc(var(--y) * 100% / 560);
+  translate: -50% -112%; margin: 0; }
+.stop.below { translate: -50% 12%; }
+.stop .pic { aspect-ratio: 1; background: #ededed; overflow: hidden; }
+.stop img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.num { display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%;
+  background: var(--ink); color: var(--paper); font: 600 10px/1 var(--sans); flex: none; }
+.stop .num { position: absolute; right: -8px; bottom: -8px; }
+.stop.below .num { top: -8px; bottom: auto; }
+
+.captions { list-style: none; padding: 0; margin: 40px 0 0; columns: 2; column-gap: 64px; }
+.captions li { display: flex; gap: 10px; break-inside: avoid; margin-bottom: 14px; }
+
+@media (max-width: 640px) {
+  .trail { width: auto; margin-left: 0; translate: none; }
+  .map { aspect-ratio: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .map svg { display: none; }
+  .stop, .stop.below { position: relative; left: auto; top: auto; width: auto; translate: none; }
+  .stop .num, .stop.below .num { top: 6px; left: 6px; right: auto; bottom: auto; }
+  .captions { columns: 1; }
+}
 
 footer { margin-top: 96px; color: var(--muted); font-size: 13px; }
 

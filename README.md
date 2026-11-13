@@ -7,7 +7,7 @@ live at https://apalicepark.github.io/personal-website/
 
 plain HTML/CSS with a little JavaScript
 
-design inspired wiss-style print resumes
+design inspired by swiss-style print resumes
 
 ## files
 

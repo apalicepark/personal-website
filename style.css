@@ -104,6 +104,10 @@ section > .entry:first-of-type, section > .lines, section > .pairs { margin-top:
   .stop, .stop.below { position: relative; left: auto; top: auto; width: auto; translate: none; }
   .stop .num, .stop.below .num { top: 6px; left: 6px; right: auto; bottom: auto; }
   .captions { columns: 1; }
+  .story .map { display: none; }
+  .chapters { margin-top: 12px; border-left: 1px solid var(--ink); padding-left: 0; }
+  .story .chapters { margin-left: 9px; }
+  .chapters li { margin-left: -9px; margin-bottom: 12px; }
   .trail .map { margin-top: 12px; }
 }
 
@@ -167,6 +171,15 @@ footer { margin-top: 56px; }
 }
 .captions { margin: 20px 0 0; column-gap: 32px; font-size: 13px; }
 .captions li { gap: 8px; margin-bottom: 6px; }
+
+/* how i got here: dots on the line, chapters below */
+.story .map { aspect-ratio: 1100 / 330; }
+.beat { position: absolute; left: calc(var(--x) * 100% / 1100); top: calc(var(--y) * 100% / 400); translate: -50% -50%; }
+.beat .num { display: grid; }
+.beat .yr { position: absolute; bottom: 24px; left: 50%; translate: -50% 0; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.chapters li { line-height: 1.5; }
+.chapters .yr { font-weight: 600; margin-right: 4px; }
+.story .map path { transition-duration: 1.8s; }
 
 /* ---------- phone ---------- */
 @media (max-width: 640px) {

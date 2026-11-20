@@ -4,16 +4,33 @@ const io = new IntersectionObserver((items) => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
-// 2) project filter chips (reads data-tags on each .entry in #projects)
-const chips = document.querySelectorAll(".filters button");
-const projects = document.querySelectorAll("#projects .entry");
-chips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    chips.forEach((c) => c.classList.remove("on"));
-    chip.classList.add("on");
-    const tag = chip.dataset.tag;
-    projects.forEach((p) => p.classList.toggle("hide", tag !== "all" && !p.dataset.tags.split(" ").includes(tag)));
+// 2) filter chips: each .filters row filters the .entry blocks in its own section
+document.querySelectorAll(".filters").forEach((row) => {
+  const chips = row.querySelectorAll("button");
+  const entries = row.closest("section").querySelectorAll(".entry");
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.classList.remove("on"));
+      chip.classList.add("on");
+      const tag = chip.dataset.tag;
+      entries.forEach((e) => e.classList.toggle("hide", tag !== "all" && !(e.dataset.tags || "").split(" ").includes(tag)));
+    });
   });
+});
+
+// 2b) long experience entries: show the first 3 bullets, fold the rest behind a toggle
+document.querySelectorAll("#experience .entry").forEach((entry) => {
+  const extra = [...entry.querySelectorAll("p")].slice(3);
+  if (!extra.length) return;
+  extra.forEach((p) => p.classList.add("folded"));
+  const btn = document.createElement("button");
+  btn.className = "more";
+  btn.textContent = `+ ${extra.length} more`;
+  btn.addEventListener("click", () => {
+    const open = entry.classList.toggle("open");
+    btn.textContent = open ? "show less" : `+ ${extra.length} more`;
+  });
+  entry.appendChild(btn);
 });
 
 // 3) highlight the nav link for the section you're reading

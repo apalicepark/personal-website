@@ -181,11 +181,35 @@ footer { margin-top: 56px; }
 .chapters .yr { font-weight: 600; margin-right: 4px; }
 .story .map path { transition-duration: 1.8s; }
 
+/* ---------- experience page: timeline rail, company first, easier-to-read bullets ---------- */
+#experience .entry { position: relative; margin-top: 0; padding: 0 0 26px 22px; border-left: 1px solid var(--line); }
+#experience .entry:last-of-type { border-left-color: transparent; }
+#experience .entry::before { content: ""; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--paper); border: 1px solid var(--ink); }
+#experience .entry.now::before { background: var(--ink); }
+#experience .entry .title { grid-column: 1; grid-row: 1; font-style: normal; font-weight: 600; }
+#experience .entry .when { grid-column: 2; grid-row: 1; }
+#experience .entry .org { grid-column: 1 / -1; grid-row: 2; color: var(--muted); font-style: italic; }
+#experience .entry p { color: #4d4d4d; margin-top: 6px; }
+#experience .entry p:first-of-type { margin-top: 8px; }
+#experience .entry p + p { margin-top: 5px; }
+#experience .entry p::before { content: "–"; color: var(--muted); margin-right: 8px; }
+#experience .entry p { padding-left: 15px; text-indent: -15px; }
+#experience .filters { margin-bottom: 22px; }
+#experience .entry .folded { display: none; }
+#experience .entry.open .folded { display: block; }
+.more { grid-column: 1 / -1; justify-self: start; font: inherit; font-size: 13px; color: var(--muted); background: none; border: 0;
+  padding: 0; margin-top: 6px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.more:hover { color: var(--ink); text-decoration-color: currentColor; }
+
 /* ---------- phone ---------- */
 @media (max-width: 640px) {
   .sheet { padding: 24px 20px 48px; }
   .bar { flex-direction: column; gap: 6px; margin-bottom: 28px; }
   .entry .when { grid-column: 1 / -1; grid-row: auto; }
+  #experience .entry .title { grid-column: 1 / -1; grid-row: 1; }
+  #experience .entry .org { grid-column: 1 / -1; grid-row: 2; }
+  #experience .entry .when { grid-column: 1 / -1; grid-row: 3; }
   .top { grid-template-columns: 1fr 100px; gap: 20px; margin-bottom: 48px; }
   .top .bio { grid-column: 1 / -1; }
   section { grid-template-columns: 1fr; }

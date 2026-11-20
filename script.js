@@ -18,21 +18,6 @@ document.querySelectorAll(".filters").forEach((row) => {
   });
 });
 
-// 2b) long experience entries: show the first 3 bullets, fold the rest behind a toggle
-document.querySelectorAll("#experience .entry").forEach((entry) => {
-  const extra = [...entry.querySelectorAll("p")].slice(3);
-  if (!extra.length) return;
-  extra.forEach((p) => p.classList.add("folded"));
-  const btn = document.createElement("button");
-  btn.className = "more";
-  btn.textContent = `+ ${extra.length} more`;
-  btn.addEventListener("click", () => {
-    const open = entry.classList.toggle("open");
-    btn.textContent = open ? "show less" : `+ ${extra.length} more`;
-  });
-  entry.appendChild(btn);
-});
-
 // 3) highlight the nav link for the section you're reading
 const links = document.querySelectorAll(".nav ul a");
 const spy = new IntersectionObserver((items) => {
